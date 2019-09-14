@@ -113,6 +113,13 @@
             UIColor *color = tabBarBackgroundColor != (id)[NSNull null] ? [RCTConvert UIColor:tabBarBackgroundColor] : nil;
             self.tabBar.barTintColor = color;
         }
+
+        NSString *tabbarImage = tabsStyle[@"tabBarBackgroundImage"];
+        if (tabbarImage)
+        {
+            UIImage *iconImage = [RCTConvert UIImage:tabbarImage];
+            self.tabBar.backgroundImage = iconImage;
+        }
         
         NSString *tabBarTranslucent = tabsStyle[@"tabBarTranslucent"];
         if (tabBarTranslucent) {

@@ -42,6 +42,7 @@ import com.reactnativenavigation.views.SideMenu.Side;
 import com.reactnativenavigation.views.SnackbarAndFabContainer;
 import com.reactnativenavigation.views.slidingOverlay.SlidingOverlay;
 import com.reactnativenavigation.views.slidingOverlay.SlidingOverlaysQueue;
+import com.reactnativenavigation.params.parsers.StyleParamsParser;
 
 import java.util.List;
 
@@ -232,6 +233,10 @@ public class BottomTabsLayout extends BaseLayout implements AHBottomNavigation.O
         for (int i = 0; i < bottomTabs.getItemsCount(); i++) {
             screenStacks[i].updateScreenStyle(screenInstanceId, styleParams);
         }
+
+        // buttomtabs style update here
+        StyleParams parsedStyleParams = new StyleParamsParser(styleParams).parse();
+        bottomTabs.setStyleFromScreen(parsedStyleParams);
     }
 
     @Override
